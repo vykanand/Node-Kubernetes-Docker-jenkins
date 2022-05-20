@@ -1,0 +1,77 @@
+https://docs.docker.com/engine/install/ubuntu/
+
+https://computingforgeeks.com/deploy-kubernetes-cluster-on-ubuntu-with-kubeadm/
+
+https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/
+
+https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/jenkins-ubuntu-20-install-git-jdk-java-ci-cd
+
+sudo minikube delete
+
+minikube start --extra-config=kubeadm.ignore-preflight-errors=NumCPU --force --cpus 1 --memory=700mb
+
+
+
+cd/nodeapp
+ls
+----------Test docker-----------
+docker build -f dockerfile -t vkvik434321:node3000test .
+
+docker images
+
+docker build .
+
+docker run -d -p 3000:3000 11d2ecb727cc
+
+Now access your app http://104.131.123.24:3000/
+
+docker rm -f 65dfb456cd20(container ID)
+
+-------push to docker -----------
+docker login
+
+docker push 11d2ecb727cc
+
+docker image tag vkvik434321:node3000test vkvik434321/node3000:latest
+
+docker image push vkvik434321/node3000:latest
+
+------------kubectl--------------
+
+kubectl apply -f deploymentservice.yml
+
+kubectl get pods
+kubectl get svc
+
+minikube service nodeapp-service
+
+minikube service list
+
+
+----------------
+sudo a2dissite 000-default.conf(important disable this conf)
+
+sudo a2dissite newc.conf
+sudo a2ensite newc.conf
+ sudo systemctl restart apache2
+
+
+
+
+ ---------------------Jenkins-----------------
+ NOT WORKING
+
+
+ kubectl create namespace jenkins
+
+ kubectl create -f jenkins.yaml --namespace jenkins
+
+ kubectl get pods -n jenkins
+
+ kubectl create -f jenkins-service.yaml --namespace jenkins
+kubectl get services --namespace jenkins
+kubectl get nodes -o wide
+kubectl get pods -n jenkins
+kubectl logs jenkins-6fb994cfc5-twnvn -n jenkins
+
+
